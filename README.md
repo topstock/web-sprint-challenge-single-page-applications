@@ -36,14 +36,16 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
 
-Answer: We use useRouteMatch to access match's url and path values. By using the url from match in a child component's Link's "to" and the path from match in a Route "path" the child component can dynamically route different children with the same route code.
+    Answer: We use useRouteMatch to access match's url and path values. By using the url from match in a child component's Link's "to" and the path from match in a Route "path" the child component can dynamically route different children with the same route code.
+
 1. How would you explain form validation to someone who has never programmed before?
 
-Answer: Form validation is code that lets you supply error messages and prevent unfit form submissions by using code to to load text or disable a submit button etc.  The blocks that do the validation have to access the data in the form, test it to see if has the right syntax, and then unlock the submission.
+
+    Answer: Form validation is code that reports if a form is ready to submit.  It must accept the data from the form, perform required tests, and then output a pass or fail for each test. The output can include the error message or data used to unlock the submit button. 
 
 1. In 1-2 sentences, define end to end testing.
 
-Answer:  End to end testing is a set of tests for all of the elements of an app through the entire process of its initial loading, accessing output and entering input, and performing network requests.  It tests everything the app does when it is actually used. 
+    Answer:  End to end testing is a set of tests for all of the elements of an app through the entire process of its initial loading, accessing output and entering input, and performing network requests.  It tests everything the app does when it is actually used. 
 
 
 ## Instructions
@@ -60,8 +62,8 @@ Answer:  End to end testing is a set of tests for all of the elements of an app 
 
 Your finished project must include all of the following requirements:
 
-- [ ] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable but must have an id of "order-pizza")
-- [ ] A order form that has a "/pizza" route and shows the form
+- [X] A homepage that has a "/" route and links to your form (button, nav bar, or any other type of link is acceptable but must have an id of "order-pizza")
+- [X] A order form that has a "/pizza" route and shows the form
 - [ ] A form with an id of "pizza-form"
 - [ ] A name text input field with an id of "name-input"
 - [ ] Validation for name and the error message is "name must be at least 2 characters" (Use this exact error message to make sure tests pass) ::: VERY IMPORTANT TO USE THAT EXACT ERROR MESSAGE (casing included!)
