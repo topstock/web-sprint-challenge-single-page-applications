@@ -3,7 +3,7 @@ import UNSPLASH from "./constants/url-constants";
 import { NavLink, Route, useHistory } from "react-router-dom";
 import Form from "./components/Form";
 import axios from "axios";
-import schema from "./formSchema";
+import schema from "./validation/formSchema";
 import * as yup from "yup";
 
 const initialFormValues = {
@@ -23,9 +23,9 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 const App = () => {
-  const { formValues, setFormValues } = useState(initialFormValues);
-  const { formErrors, setFormErrors } = useState(initialFormErrors);
-  const { disabled, setDisabled } = useState(initialDisabled);
+  const [formValues, setFormValues] = useState();
+  const  [formErrors, setFormErrors] = useState(initialFormErrors);
+  const  [disabled, setDisabled] = useState(initialDisabled);
   const {UNSPLASH_URL, UNSPLASH_PROFILE_URL} = UNSPLASH;
   const history = useHistory();
   
@@ -48,7 +48,7 @@ const App = () => {
 
   useEffect(() => {
     // 🔥 STEP 9- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
-    schema.isValid(formValues).then(valid => setDisabled(!valid));
+     schema.isValid(formValues).then(valid => setDisabled(!valid));
   }, [formValues])
 
   return (

@@ -18,7 +18,6 @@ const Form = (props) => {
     const knownValue = type === 'checkbox' ? checked : value;
     change(name, knownValue);
   }
-
     return ( 
         <form 
         className="form container" 
@@ -39,7 +38,7 @@ const Form = (props) => {
                         onChange={onChange}
                         name="name"
                         type="text"
-                       value={values.name}
+                       // value={values.name}
                     />
                 </label>  
 
