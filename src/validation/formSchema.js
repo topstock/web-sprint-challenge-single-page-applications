@@ -8,15 +8,15 @@ const formSchema = yup.object().shape({
     .min(2, "name must be at least 2 characters"),
   size: yup
     .string()
-    .trim()
-    .required("Pick a size!"),
-  meat: yup.boolean(),
-  vegitable: yup.boolean(),
-  crust: yup
+    .oneOf(["regular", "large", "party", "institutional"], "Pick a size!"),
+  prosciutto: yup.boolean(),
+  granaPadano: yup.boolean(),
+  artichoke: yup.boolean(),
+  basil: yup.boolean(),
+  specialText: yup
     .string()
     .trim()
-    .required("Pick a crust!")
-    .min(2, "no such crust")
+    .max(40, "special instructions are too long")
 });
 
 export default formSchema

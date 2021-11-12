@@ -14,14 +14,35 @@
 }
 
 .App-header {
-  background-image: url("../Assets/header.jpg");
-  min-height: 100vh;
+  background: url("./header.jpg") fixed center;
+  height: 30vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+h6 {
+  color: beige;
+}
+
+a {
+  color: bisque;
+  text-decoration: none; /* no underline */
+}
+
+
+
+div.headerContent {
+  background-color: rgba(0,0,0, 0.4);
+  padding: 3vw;
+  border-radius: 4px;
+}
+
+ul.no-bullets {
+  list-style-type: none;
 }
 
 .App-link {

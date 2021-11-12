@@ -27,18 +27,18 @@ const Form = (props) => {
    
             <div className="form-top submit">
                 <h2>Pizza</h2>
-                <button disabled={disabled}>Submit Order</button>
+                <button id="order-button" disabled={disabled} onClick={submit}>Submit Order</button>
                 <div className="errors">
                     <div>{errors.name}</div>
                     <div>{errors.size}</div>
-                    <div>{errors.crust}</div>
-
+                    <div>{errors.specialText}</div>
+                    
                 </div>
             </div>
              
-            <div className="form options">
+            <div className="form options errors size name">
                 <h3>Options</h3>
-                <label>Customer Name 
+                <label>Customer Name &nbsp;
                     <input
                         id="name-input"
                         onChange={onChange}
@@ -47,42 +47,84 @@ const Form = (props) => {
                         value={values.name}
                     />
                 </label>  
-  
-                <label>Pizza Size
-                    <input
+                <div>
+                    <label>Size&nbsp;
+                        <select
+                          onChange={onChange}
+                          value={values.size}
+                          name="size"
+                          id="size-dropdown"
+                        >
+                            <option value="">- Pick a Size! -</option>
+                            <option value="regular">Regular (9")</option>
+                            <option value="large">Large (11")</option>
+                            <option value="party">Party (14")</option>
+                            <option value="institutional">Institutional (20")</option>
+                        </select>
+                    </label>
+                </div>  
+            </div>
+            <div className="form options toppings" >
+                <h5>Select Optional Toppings</h5>
+                <ul className="no-bullets">
+                    <li>
+                        <label>
+                            <input
+                                onChange={onChange}
+                                name="prosciutto"
+                                type="checkbox"
+                                checked={values.prosciutto}
+                            />
+                        </label>
+                        Prosciutto                     
+                    </li>                  
+                    <li>
+                        <label>
+                            <input
+                                onChange={onChange}
+                                name="granaPadano"
+                                type="checkbox"
+                                checked={values.granaPadano}
+                            />
+                            Grana Padano 
+                        </label>  
+                    </li>                  
+                    <li>
+                        <label>
+                            <input
+                                onChange={onChange}
+                                name="artichoke"
+                                type="checkbox"
+                                checked={values.artichoke}
+                            />
+                            Artichoke Hearts
+                        </label>  
+                    </li>                  
+                    <li>
+                        <label> 
+                            <input
+                                onChange={onChange}
+                                name="basil"
+                                type="checkbox"
+                                checked={values.basil}
+                            />
+                            Dark Opal Basil
+                        </label>
+                    </li>  
+                </ul>
+            </div>
+
+            <div>
+                <label>Special Instructions
+                    <input 
                         onChange={onChange}
-                        name="size"
+                        name="specialText"
                         type="text"
-                        value={values.size}
+                        value={values.specialText}
+                        id="special-text"
                     />
                 </label> 
-  
-                <label>Meat 
-                    <input
-                        onChange={onChange}
-                        name="meat"
-                        type="checkbox"
-                        checked={values.meat}
-                    />
-                </label>                    
-                 
-                <label>Vegitable 
-                    <input
-                        onChange={onChange}
-                        name="vegitable"
-                        type="checkbox"
-                        checked={values.vegitable}
-                    />
-                </label>
-  
-                <label>Crust 
-                    <input
-                        onChange={onChange}
-                        name="crust"
-                        type="text"
-                        value={values.crust}
-                    />
-                </label>                    
+
             </div>
         </form>
     ) 
