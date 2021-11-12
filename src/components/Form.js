@@ -6,6 +6,7 @@ const Form = (props) => {
     disabled,
     change,
     submit,
+    errors
   } = props;
     
   const onSubmit = evt => {
@@ -14,7 +15,7 @@ const Form = (props) => {
   }
 
   const onChange = evt => {
-    const {name, value, checked, type } = evt.target;
+    const { name, value, checked, type } = evt.target;
     const knownValue = type === 'checkbox' ? checked : value;
     change(name, knownValue);
   }
@@ -23,58 +24,63 @@ const Form = (props) => {
         className="form container" 
         onSubmit={onSubmit}
         id="pizza-form">
-
+   
             <div className="form-top submit">
                 <h2>Pizza</h2>
                 <button disabled={disabled}>Submit Order</button>
-                <div className="errors"></div>
+                <div className="errors">
+                    <div>{errors.name}</div>
+                    <div>{errors.size}</div>
+                    <div>{errors.crust}</div>
+
+                </div>
             </div>
-            
+             
             <div className="form options">
                 <h3>Options</h3>
-                <label>
+                <label>Customer Name 
                     <input
                         id="name-input"
                         onChange={onChange}
                         name="name"
                         type="text"
-                       // value={values.name}
+                        value={values.name}
                     />
                 </label>  
-
-                <label>Size
+  
+                <label>Pizza Size
                     <input
                         onChange={onChange}
                         name="size"
                         type="text"
-                    //   value={values.size}
+                        value={values.size}
                     />
                 </label> 
-
+  
                 <label>Meat 
                     <input
                         onChange={onChange}
                         name="meat"
                         type="checkbox"
-                    //   checked={values.meat}
+                        checked={values.meat}
                     />
                 </label>                    
-                
+                 
                 <label>Vegitable 
                     <input
                         onChange={onChange}
                         name="vegitable"
                         type="checkbox"
-                    //   checked={values.vegitable}
+                        checked={values.vegitable}
                     />
                 </label>
-
+  
                 <label>Crust 
                     <input
                         onChange={onChange}
                         name="crust"
                         type="text"
-                    //    value={values.crust}
+                        value={values.crust}
                     />
                 </label>                    
             </div>

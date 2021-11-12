@@ -23,7 +23,7 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 const App = () => {
-  const [formValues, setFormValues] = useState();
+  const [formValues, setFormValues] = useState(initialFormValues);
   const  [formErrors, setFormErrors] = useState(initialFormErrors);
   const  [disabled, setDisabled] = useState(initialDisabled);
   const {UNSPLASH_URL, UNSPLASH_PROFILE_URL} = UNSPLASH;
@@ -34,6 +34,7 @@ const App = () => {
       .then(() => setFormErrors({ ...formErrors, [name]: '' }))
       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
   }
+
   const submit = () => {
 
   }
@@ -75,6 +76,7 @@ const App = () => {
         </Route>
         <Route path="/pizza" >
           <Form 
+            errors={formErrors}
             values={formValues} 
             change={changeInput}
             submit={submit}
