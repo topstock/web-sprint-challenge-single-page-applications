@@ -97,7 +97,7 @@ const App = () => {
       </section>
       <Route exact path="/">
         <div id="homePage">
-          <button onClick={()=> history.push("/pizza")}>Order Pizza</button> 
+          <button onClick={()=> history.push("/pizza")} id="orderBtn">Order Pizza</button> 
         </div>
       </Route>
       <Route path="/pizza" >
@@ -108,8 +108,14 @@ const App = () => {
           submit={submit}
           disabled={disabled}
           />
-        </Route>      
-    </>
+      </Route>
+
+      { 
+        orders.map(order => {
+          return (
+          <h5>{order.name} ordered {order.size}: {order.toppings.join(', ')} instructions: {order.specialText}</h5>
+      )})}  
+    </>    
   );
 };
 export default App;
