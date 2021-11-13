@@ -83,9 +83,16 @@ const App = () => {
         <p>Serving the World"s Best Coding Bootcampers</p>
         <nav>
           <NavLink 
-            to="/"
+            to="/pizza"
             className="home navLink" 
             id="order-pizza"
+          >
+            Pizza?
+          </NavLink>
+          <NavLink 
+            to="/"
+            className="home navLink" 
+            id="homeLink"
           >
             Home
           </NavLink>
@@ -97,7 +104,7 @@ const App = () => {
       </section>
       <Route exact path="/">
         <div id="homePage">
-          <button onClick={()=> history.push("/pizza")} id="orderBtn">Order Pizza</button> 
+          <button onClick={()=> history.push("/pizza")} id="orderBtn">Pizza?</button> 
         </div>
       </Route>
       <Route path="/pizza" >
